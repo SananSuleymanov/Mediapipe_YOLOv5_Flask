@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Detection</title>
+
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8  offset-lg-2">
+            <h3 class="mt-5">SNAP</h3>
+            <img src="{{ url_for('video_feed') }}" width="50%">
+        </div>
+
+    </div>
+</div>
+
+<label for="filter">Choose filter: </label>
+<form action={{url_for("tasks")}} method="post" style="padding: 50px, 50px">
+    <input type="submit" value="Grey" name="grey" style="padding: 50px, 50px;" >
+    <input type="submit" value="Blur" name="blur" style="padding: 50px, 50px;">
+    <input type="submit" value="Detect" name="detect" style="padding: 50px, 50px;">
+    <input type="submit" value="Pose" name="pose" style="padding: 50px, 50px;">
+    <input type="submit" value="Ironman" name="iron" style="padding: 50px, 50px;">
+    <input type="submit" value="Hulk" name="hulk" style="padding: 50px, 50px;">
+</form>
+
+{% for message in get_flashed_messages() %}
+<h2>{{ message }}</h2>
+{% endfor %}
+
+</body>
+
+</html>
